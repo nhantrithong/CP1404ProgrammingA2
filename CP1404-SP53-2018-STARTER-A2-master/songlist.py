@@ -69,3 +69,25 @@ class SongList:
                 new = component[0] + "," + component[1] + "," + component[2] + "," + new_status
                 self.not_learnt_list.append(new)
         print(self.not_learnt_list)
+
+    def load_songs(self):
+        input_file = open("songs.csv", "r")
+        file_read = input_file.readlines()
+        count_list = []
+        learnt_count = 0
+        song_number_count = 0
+        for lines in self.file:
+            song_number_count += 1
+            new_lines = lines.split(",")
+            song_name = new_lines[0]
+            artist_name = new_lines[1]
+            year = new_lines[2]
+            status = new_lines[3].replace("n", "*").replace("y", "").replace("\n", "")
+            final_song_list = ("{},{},{},{}".format(song_name, artist_name, year, status))
+            count_list.append(song_number_count)
+            if "*" not in status:
+                learnt_count += 1
+            self.list.append(final_song_list)
+            # self.export.append(final_song_list)
+            self.learnt_count.append(learnt_count)
+            self.count_list.append(max(count_list))
