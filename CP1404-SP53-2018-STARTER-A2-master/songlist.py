@@ -27,3 +27,12 @@ class SongList:
         for lines in self.list:
             if title in lines:
                 return (lines)
+
+    def add_song(self, song_name_add, artist_name_add, year_add):
+        new_status = "*\n"
+        if self.remainder[-1] == 0:
+            self.remainder.remove(self.remainder[-1])
+        song_to_add = ("{},{},{},{}".format(song_name_add, artist_name_add, year_add, new_status))
+        self.file.append(song_to_add)
+        self.list.append(song_to_add)
+        # self.export.append(song_to_add)
