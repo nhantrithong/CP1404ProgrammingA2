@@ -127,3 +127,13 @@ class SongList:
             final_year_sort = order[1] + "," + order[2] + "," + order[0] + "," + order[3]
             self.sort_year_list_2.append(final_year_sort)
         return (self.sort_year_list_2)
+
+    def save_songs(self):
+        input_file = open("songs.csv", "w")
+        for songs in self.list:
+            lines = songs + '\n'
+            input_file.write("{}".format(lines))
+
+    def __str__(self):
+        return ("{}".format(self.list))
+      
