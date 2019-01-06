@@ -1,0 +1,60 @@
+BoxLayout:
+    orientation: 'horizontal'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.3
+        Label:
+            font_size: 16
+            text: 'Sort By:'
+        Spinner:
+            id: sort_selection
+            text: app.current_sort
+            values: ['Title','Artist','Year']
+            # on_text is the event (not on_release) when the text updates (spinner option is selected)
+            # note that on_text runs even when the text is set for the very first time
+            #on_text: app.sorting(sort_selection.text)
+            # values takes a list - could be a literal here or variable in app
+        Label:
+            font_size: 16
+            text: 'Add New Song...'
+        Label:
+            font_size: 16
+            text: 'Title:'
+        TextInput:
+            id: input_title
+            height: '20dp'
+            multiline: False
+        Label:
+            font_size: 16
+            text: 'Artist:'
+        TextInput:
+            id: input_artist
+            height: '20dp'
+            multiline: False
+        Label:
+            font_size: 16
+            text: 'Year:'
+        TextInput:
+            id: input_year
+            height: '20dp'
+            multiline: False
+        Button:
+            text: 'Add Song'
+            on_release: app.add_new_song()
+        Button:
+            id: clear_button
+            text: 'Clear'
+            on_release: app.clear_app()
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            size_hint_y: 0.6
+            id: output_label
+        BoxLayout:
+            size_hint_y: 5
+            id: create_widgets
+            cols: 1
+            orientation: 'vertical'
+        Label:
+            #size_hint_y = 0.3
+            id: output_label_2
