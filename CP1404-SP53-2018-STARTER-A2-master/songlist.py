@@ -36,3 +36,8 @@ class SongList:
         self.file.append(song_to_add)
         self.list.append(song_to_add)
         # self.export.append(song_to_add)
+
+    def get_num_required(self):
+        songs_left = max(self.count_list) - max(self.learnt_count)
+        self.remainder.append(songs_left)
+        return (songs_left)
