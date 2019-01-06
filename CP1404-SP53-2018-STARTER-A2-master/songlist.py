@@ -49,3 +49,13 @@ class SongList:
     def get_num_total(self):
         total_songs = max(self.count_list)
         return (total_songs)
+
+    def mark_learnt(self):
+        for songs in self.list:
+            component = songs.split(',')
+            status = component[3]
+            if status == "*":
+                new_status = "Learnt"
+                new = component[0] + "," + component[1] + "," + component[2] + "," + new_status
+                self.learnt_list.append(new)
+        print(self.learnt_list)
