@@ -58,3 +58,12 @@ class SongsToLearnApp(App):
         # self.counter()
         # self.sorting()
         return self.root
+
+    def sorting(self):
+        if self.root.ids.sort_selection.values == 'Title':
+            choice = self.list_song_2
+        elif self.root.ids.sort_selection.values == 'Artist':
+            choice = self.list_artist_2
+        elif self.root.ids.sort_selection.values == 'Year':
+            choice = self.list_year_2
+        return choice
