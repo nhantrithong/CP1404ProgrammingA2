@@ -45,3 +45,7 @@ class SongList:
     def get_num_learnt(self):
         songs_learnt = max(self.learnt_count)
         return (songs_learnt)
+
+    def get_num_total(self):
+        total_songs = max(self.count_list)
+        return (total_songs)
