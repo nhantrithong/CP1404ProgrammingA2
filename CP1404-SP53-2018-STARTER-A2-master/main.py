@@ -49,3 +49,12 @@ class SongsToLearnApp(App):
         self.list_year_2 = self.songlist.sort_year_list_2
 
         self.songlist.save_songs()
+
+    def build(self):
+        self.title = "Songs to Learn 2.0"
+        self.root = Builder.load_file('app.kv')
+        self.current_sort = "Title"
+        self.create_widgets()
+        # self.counter()
+        # self.sorting()
+        return self.root
