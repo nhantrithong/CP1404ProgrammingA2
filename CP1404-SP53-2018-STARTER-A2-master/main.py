@@ -108,3 +108,28 @@ class SongsToLearnApp(App):
         temp_button.text = final
         self.songlist.save_songs()
         self.root.ids.output_label_2.text = final_2
+
+
+    def add_new_song(self):
+        song_name = str(self.root.ids.input_title.text)
+        artist_name = str(self.root.ids.input_artist.text)
+        year = str(self.root.ids.input_year.text)
+        full_description = song_name +","+ artist_name +","+ year +","+ "*"
+        self.list.append(full_description)
+        self.songlist.save_songs()
+        self.root.ids.input_title.text = ""
+        self.root.ids.input_artist.text = ""
+        self.root.ids.input_year.text = ""
+        self.get_num_total += 1
+        self.create_widgets()
+
+    def clear_app(self):
+        self.root.ids.input_title.text = ""
+        self.root.ids.input_artist.text = ""
+        self.root.ids.input_year.text = ""
+
+
+
+
+
+SongsToLearnApp().run()
