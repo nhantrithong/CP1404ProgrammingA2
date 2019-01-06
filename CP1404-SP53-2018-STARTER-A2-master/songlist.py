@@ -59,3 +59,13 @@ class SongList:
                 new = component[0] + "," + component[1] + "," + component[2] + "," + new_status
                 self.learnt_list.append(new)
         print(self.learnt_list)
+
+    def mark_not_learnt(self):
+        for songs in self.list:
+            component = songs.split(',')
+            status = component[3]
+            if status == "":
+                new_status = "Not Learnt"
+                new = component[0] + "," + component[1] + "," + component[2] + "," + new_status
+                self.not_learnt_list.append(new)
+        print(self.not_learnt_list)
