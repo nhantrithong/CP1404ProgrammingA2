@@ -1,3 +1,16 @@
+'''
+Name: Nhan Tri Thong
+
+Date: 1/5/2019
+
+Brief Project Description: creating a GUI which displays a series of song in a list which can mark them as learnt, count the amount og
+                            songs, enabling the addtion of new songs as well as a sorting feature
+
+GitHub URL: https://github.com/nhantrithong/CP1404ProgrammingA2
+
+Personal repository is used as given classroom repositoty in the Assignment 2 instruction doc does not work
+'''
+
 #importing all necessary modules
 from kivy.app import App
 from kivy.lang import Builder
