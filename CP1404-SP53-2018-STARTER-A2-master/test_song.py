@@ -1,17 +1,20 @@
 """(Incomplete) Tests for Song class."""
 from song import Song
 
-#status-True = Required to learnt (has not learn yet)
-#status-False = No longer required to learn (song learned/completed)
+#status-* = Required to learnt (has not learn yet)
+#status-"" = No longer required to learn (song learned/completed)
 
-# test empty song (defaults)
+# test empty song (defaults) with error checking through assert statements
 song = Song()
 print(song)
 assert song.artist == ""
 assert song.title == ""
 assert song.year == 0
-#assert song.is_required
 assert song.status in ["","*"]
+
+#status-* = Required to learnt (has not learn yet)
+#status-"" = No longer required to learn (song learned/completed)
+
 
 # test initial-value song
 song2 = Song("Amazing Grace", "John Newton", 1779, True)

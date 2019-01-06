@@ -1,6 +1,8 @@
+#opens csv file
 input_file = open("songs.csv", "r")
 FILES = input_file.readlines()
 
+#intitiating all attributes required for proper function of class
 class SongList:
     def __init__(self, list = []):
         self.list = list
@@ -23,11 +25,13 @@ class SongList:
         self.learnt_list = []
         self.not_learnt_list = []
 
+    #method gets song based on input
     def get_song(self, title):
         for lines in self.list:
             if title in lines:
                 return (lines)
 
+    #method adds song into universal list
     def add_song(self, song_name_add, artist_name_add, year_add):
         new_status = "*\n"
         if self.remainder[-1] == 0:
@@ -37,19 +41,23 @@ class SongList:
         self.list.append(song_to_add)
         # self.export.append(song_to_add)
 
+    #method gets the number of songs still required to learn
     def get_num_required(self):
         songs_left = max(self.count_list) - max(self.learnt_count)
         self.remainder.append(songs_left)
         return (songs_left)
 
+    #method gets the number of songs learnt
     def get_num_learnt(self):
         songs_learnt = max(self.learnt_count)
         return (songs_learnt)
 
+    #method gets the total number of songs
     def get_num_total(self):
         total_songs = max(self.count_list)
         return (total_songs)
 
+    #method marks songs in list as learnt
     def mark_learnt(self):
         for songs in self.list:
             component = songs.split(',')
@@ -60,6 +68,7 @@ class SongList:
                 self.learnt_list.append(new)
         print(self.learnt_list)
 
+    #method mark songs in list as not learnt (not used too much)
     def mark_not_learnt(self):
         for songs in self.list:
             component = songs.split(',')
@@ -70,6 +79,7 @@ class SongList:
                 self.not_learnt_list.append(new)
         print(self.not_learnt_list)
 
+    #method loads the song from the csv file and then appending them to the universal list
     def load_songs(self):
         input_file = open("songs.csv", "r")
         file_read = input_file.readlines()
@@ -91,6 +101,8 @@ class SongList:
             # self.export.append(final_song_list)
             self.learnt_count.append(learnt_count)
             self.count_list.append(max(count_list))
+
+    #method which sorts song in a particular order (title, artist, year)
 
     def sort(self):
         for lines in self.list:
@@ -128,11 +140,13 @@ class SongList:
             self.sort_year_list_2.append(final_year_sort)
         return (self.sort_year_list_2)
 
+    #method saves all songs added into the csv file
     def save_songs(self):
         input_file = open("songs.csv", "w")
         for songs in self.list:
             lines = songs + '\n'
             input_file.write("{}".format(lines))
 
+    #str method returns universal list
     def __str__(self):
         return ("{}".format(self.list))
