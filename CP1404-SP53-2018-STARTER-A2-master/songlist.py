@@ -22,3 +22,8 @@ class SongList:
 
         self.learnt_list = []
         self.not_learnt_list = []
+
+    def get_song(self, title):
+        for lines in self.list:
+            if title in lines:
+                return (lines)
