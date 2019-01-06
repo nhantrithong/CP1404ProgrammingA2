@@ -91,3 +91,39 @@ class SongList:
             # self.export.append(final_song_list)
             self.learnt_count.append(learnt_count)
             self.count_list.append(max(count_list))
+
+    def sort(self):
+        for lines in self.list:
+            each_line = lines.split(",")
+            list_sort = each_line[0] + "," + each_line[1] + "," + each_line[2] + "," + each_line[3]
+            self.sort_list.append(list_sort)
+        self.sort_list.sort()
+        for sorted_items in self.sort_list:
+            order = sorted_items.split(",")
+            final_sort = order[0] + "," + order[1] + "," + order[2] + "," + order[3]
+            self.sort_list_2.append(final_sort)
+        return (self.sort_list_2)
+
+    def sort_artist(self):
+        for lines in self.list:
+            each_line = lines.split(",")
+            artist_sort = each_line[1] + "," + each_line[0] + "," + each_line[2] + "," + each_line[3]
+            self.sort_artist_list.append(artist_sort)
+        self.sort_artist_list.sort()
+        for sorted_items in self.sort_artist_list:
+            order = sorted_items.split(",")
+            final_artist_sort = order[1] + "," + order[0] + "," + order[2] + "," + order[3]
+            self.sort_artist_list_2.append(final_artist_sort)
+        return (self.sort_artist_list_2)
+
+    def sort_year(self):
+        for lines in self.list:
+            each_line = lines.split(",")
+            year_sort = each_line[2] + "," + each_line[0] + "," + each_line[1] + "," + each_line[3]
+            self.sort_year_list.append(year_sort)
+        self.sort_year_list.sort()
+        for sorted_items in self.sort_year_list:
+            order = sorted_items.split(",")
+            final_year_sort = order[1] + "," + order[2] + "," + order[0] + "," + order[3]
+            self.sort_year_list_2.append(final_year_sort)
+        return (self.sort_year_list_2)
