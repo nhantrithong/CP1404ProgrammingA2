@@ -41,3 +41,7 @@ class SongList:
         songs_left = max(self.count_list) - max(self.learnt_count)
         self.remainder.append(songs_left)
         return (songs_left)
+
+    def get_num_learnt(self):
+        songs_learnt = max(self.learnt_count)
+        return (songs_learnt)
